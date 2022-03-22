@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "eventual-result": "https://deno.land/x/eventual_result@v0.5.3/mod.ts"
+  }
+}
