@@ -1,5 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.130.0/testing/asserts.ts";
-import { tick, wait } from "./mod.ts";
+import { delay } from "https://deno.land/std@0.130.0/async/mod.ts";
+import { tick } from "./mod.ts";
 
 Deno.test("tick", async function () {
   const iterable = tick(10);
@@ -14,7 +15,7 @@ Deno.test("tick", async function () {
 
   const afterFirstIteration = await Promise.race([
     firstResult,
-    wait(11),
+    delay(11),
   ]);
 
   assertEquals(afterFirstIteration, { done: false, value: 0 });

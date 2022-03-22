@@ -1,15 +1,4 @@
-/**
- * Create a `Promise` that resolves after the amount of time has passed
- *
- * @param timeout The amount of time to wait before resolving
- */
-export function wait(timeout: number): Promise<void> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, timeout);
-  });
-}
+import { delay } from "https://deno.land/std@0.130.0/async/mod.ts";
 
 /**
  * Yields a value^ after the given timeout
@@ -22,7 +11,7 @@ export async function* tick(interval: number) {
   let iterations = 0;
 
   while (true) {
-    await wait(interval);
+    await delay(interval);
 
     yield iterations++;
   }
